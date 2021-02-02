@@ -15,7 +15,7 @@ Documentation
 ### How to install this plugin?
 
 1. Be sure to have SketchUp 2017 or newer.
-2. Download latest Layers/Tags In Time plugin from the SketchUcation PluginStore.
+2. Download latest Layers/Tags In Time plugin from the [SketchUcation PluginStore](https://sketchucation.com/plugin/2376-layers_tags_in_time).
 3. Install plugin following this [guide](https://www.youtube.com/watch?v=tyM5f81eRno).
 
 Now, you should have in SketchUp a "Layers/Tags In Time" menu in "Extensions" menu.
