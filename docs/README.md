@@ -2,6 +2,13 @@
 
 Display or hide SketchUp layers/tags depending on time (dates or hours). Define as much time layers/tags you want: they combine. Create and assign simultaneously a layer/tag to an entity via context menu. Now, your favorite 3D modeling software understands seasons concept.
 
+Demo & Screen
+-------------
+
+![SketchUp Layers/Tags In Time Plugin Demo](https://github.com/SamuelTS/SketchUp-Layers-Tags-In-Time-Plugin/raw/main/docs/sketchup-layers-tags-in-time-plugin-demo.gif)
+
+![SketchUp Layers/Tags In Time Plugin Screen](https://github.com/SamuelTS/SketchUp-Layers-Tags-In-Time-Plugin/raw/main/docs/sketchup-layers-tags-in-time-plugin-screen.png)
+
 Documentation
 -------------
 
