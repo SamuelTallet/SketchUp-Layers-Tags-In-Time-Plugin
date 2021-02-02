@@ -1,0 +1,135 @@
+<!-- Layers/Tags In Time extension for SketchUp. -->
+<!DOCTYPE html>
+<html lang="<%= Sketchup.get_locale %>">
+
+<head>
+
+    <meta charset="UTF-8">
+    
+    <meta name="x-copyright" content="© 2021 Samuel Tallet">
+    <meta name="x-license" content="GNU General Public License 3.0">
+
+    <title><%= NAME %></title>
+    
+    <%= scripts['libraries/imask.js'] %>
+	<%= scripts['layers-editor.js'] %>
+
+	<%= styles['layers-editor.css'] %>
+
+</head>
+
+<body>
+
+    <div id="layers">
+
+        <%
+        if Sketchup.active_model.layers.length > 1
+        %>
+
+        <div class="invalid-time-data-error-message">
+            <%= TRANSLATE['Error: invalid time data detected. Save aborted.'] %>
+        </div>
+
+        <%
+            Sketchup.active_model.layers.each do |native_layer|
+
+                layer = Layer.new(native_layer)
+
+                next if layer.native.name == 'Layer0'
+        %>
+    
+        <div class="layer" data-layer-object-id="<%= layer.native.object_id %>">
+
+            <div
+                class="color"
+                style="background-color: <%= HTMLDialogs.html_rgb_color(layer.native.color) %>"
+            >
+            </div>
+
+            <div class="name" title="<%= layer.native.name %>">
+                <%= layer.native.name %>
+            </div>
+
+            <div class="input-group">
+
+                <input
+                    class="dates input-field"
+                    type="text"
+                    value="<%= layer.dates %>"
+                    data-layer-object-id="<%= layer.native.object_id %>"
+                />
+
+                <img
+                    class="input-icon"
+                    src="<%= File.join(HTMLDialogs::DIR, 'images', 'calendar-icon.svg') %>"
+                    title="<%= TRANSLATE['Start date - End date'] %>"
+                />
+
+            </div>
+
+            <div class="input-group">
+
+                <input
+                    class="hours input-field"
+                    type="text"
+                    value="<%= layer.hours %>"
+                    data-layer-object-id="<%= layer.native.object_id %>"
+                />
+
+                <img
+                    class="input-icon"
+                    src="<%= File.join(HTMLDialogs::DIR, 'images', 'clock-icon.svg') %>"
+                    title="<%= TRANSLATE['Start hour - End hour'] %>"
+                />
+
+            </div>
+
+            <button
+                class="clear button alternative-color"
+                title="<%= TRANSLATE['Clear time data'] %>"
+                data-layer-object-id="<%= layer.native.object_id %>"
+            >
+                <%= TRANSLATE['Clear'] %>
+            </button>
+    
+        </div>
+    
+        <%
+            end
+        %>
+
+        <div class="spacer"></div>
+
+        <div class="toolbar">
+
+            <button class="save-changes button"><%= TRANSLATE['Save changes'] %></button>
+
+        </div>
+
+        <%
+        else
+        %>
+
+        <div class="no-layer-found info">
+
+            <div class="text">
+            <%=
+            TRANSLATE[
+                Sketchup.version.to_i >= 20 ?
+                'No tag found except default one.' :
+                'No layer found except default one.'
+            ]
+            %>
+            </div>
+
+        </div>
+
+        <%
+        end
+        %>
+
+    </div>
+
+</body>
+
+</html>

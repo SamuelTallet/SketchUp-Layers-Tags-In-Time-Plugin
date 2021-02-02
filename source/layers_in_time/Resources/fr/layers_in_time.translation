@@ -1,0 +1,34 @@
+//////////////////////////////////////////////
+// Layers/Tags In Time extension for SketchUp.
+//
+// Translation author: Samuel Tallet
+//////////////////////////////////////////////
+
+"Tags In Time"="Balises temporelles";
+"Layers In Time"="Calques temporels";
+"Display or hide SketchUp tags depending on time (dates or hours)."="Affichez ou masquez des balises SketchUp en fonction du temps (dates ou heures).";
+"Define as much time tags you want: they combine."="Définissez autant de balises temporelles que vous le souhaitez : elles se combinent.";
+"Display or hide SketchUp layers depending on time (dates or hours)."="Affichez ou masquez des calques SketchUp en fonction du temps (dates ou heures).";
+"Define as much time layers you want: they combine."="Définissez autant de calques temporels que vous le souhaitez : ils se combinent.";
+"Create and assign simultaneously a tag to an entity via context menu."="Créez et assignez simultanément une balise à une entité via le menu contextuel.";
+"Create and assign simultaneously a layer to an entity via context menu."="Créez et assignez simultanément un calque à une entité via le menu contextuel.";
+"Now, your favorite 3D modeling software understands seasons concept."="Maintenant, votre logiciel de modélisation 3D préféré comprend le concept des saisons.";
+
+"Tag as"="Baliser en tant que";
+"Assign to layer"="Assigner au calque";
+"New tag..."="Nouvelle balise...";
+"New layer..."="Nouveau calque...";
+"Enter a tag name"="Entrez un nom de balise";
+"Enter a layer name"="Entrez un nom de calque";
+
+"Tags Editor is already open."="L'éditeur de balises est déjà ouvert.";
+"Layers Editor is already open."="L'éditeur de calques est déjà ouvert.";
+
+"Error: invalid time data detected. Save aborted."="Erreur : données temporelles non valides détectées. Sauvegarde abandonnée.";
+"Start date - End date"="Date de début - Date de fin";
+"Start hour - End hour"="Heure de début - Heure de fin";
+"Clear time data"="Effacer les données temporelles";
+"Clear"="Effacer";
+"Save changes"="Sauvegarder les modifications";
+"No tag found except default one."="Aucune balise trouvée sauf celle par défaut.";
+"No layer found except default one."="Aucun calque trouvé sauf celui par défaut.";

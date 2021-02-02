@@ -1,0 +1,162 @@
+/**
+ * Layers/Tags In Time extension for SketchUp.
+ *
+ * Copyright: © 2021 Samuel Tallet
+ *
+ * Licence: GNU General Public License 3.0
+ */
+
+* {
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+}
+
+*:focus {
+    outline: none;
+}
+
+.input-group {
+
+    display: inline-block;
+    position: relative;
+
+}
+
+.input-group .input-field {
+
+    padding: 5px;
+
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-width: 1px;
+    border-radius: 5px;
+
+    width: 100px;
+    
+}
+
+.input-group .input-field.invalid {
+    border-color: rgb(210, 21, 21);
+}
+
+.input-group .input-icon {
+
+    position: absolute;
+    right: 4px;
+    top: 5px;
+
+    height: 16px;
+    width: 16px;
+
+}
+
+.button {
+
+    border-color: transparent;
+    border-radius: 5px;
+
+    padding: 5px;
+    
+    background-color: rgb(0, 95, 158);
+    color: white;
+
+    cursor: pointer;
+
+}
+
+.button.alternative-color {
+    background-color: rgb(158, 134, 0);
+}
+
+.spacer {
+    height: 36px;
+}
+
+.info {
+
+    margin: 0 auto;
+
+    width: fit-content;
+
+}
+
+.info .text {
+
+    padding: 8px;
+
+    background-color: rgb(209, 236, 241);
+
+    border-radius: 5px;
+
+}
+
+.invalid-time-data-error-message {
+    display: none;
+}
+
+.layer {
+    margin: 5px;
+}
+
+.layer .color,
+.layer .name {
+
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.layer .color {
+
+    width: 16px;
+    height: 16px;
+
+}
+
+.layer .name {
+
+    width: 136px;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.layer .clear.button {
+
+    display: none;
+
+    width: 62px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.layer .clear.button.displayed {
+    display: inline-block;
+}
+
+.toolbar {
+    
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    background-color: white;
+
+}
+
+.toolbar .save-changes.button {
+
+    float: right;
+
+    margin: 10px;
+
+}
