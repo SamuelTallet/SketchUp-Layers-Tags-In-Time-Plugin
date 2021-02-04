@@ -25,8 +25,18 @@
 "Layers Editor is already open."="L'éditeur de calques est déjà ouvert.";
 
 "Error: invalid time data detected. Save aborted."="Erreur : données temporelles non valides détectées. Sauvegarde abandonnée.";
+"Sort by..."="Trier par...";
+"Sort by name"="Trier par nom";
+"Sort by start date"="Trier par date de début";
+"Sort by end date"="Trier par date de fin";
+"Sort by start hour"="Trier par heure de début";
+"Sort by end hour"="Trier par heure de fin";
 "Start date - End date"="Date de début - Date de fin";
 "Start hour - End hour"="Heure de début - Heure de fin";
+"Copy time data"="Copier les données temporelles";
+"Copy"="Copier";
+"Paste time data"="Coller les données temporelles";
+"Paste"="Coller";
 "Clear time data"="Effacer les données temporelles";
 "Clear"="Effacer";
 "Save changes"="Sauvegarder les modifications";

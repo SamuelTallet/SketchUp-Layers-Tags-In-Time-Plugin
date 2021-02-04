@@ -17,6 +17,14 @@
     outline: none;
 }
 
+body {
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
 .input-group {
 
     display: inline-block;
@@ -24,6 +32,7 @@
 
 }
 
+.dropdown,
 .input-group .input-field {
 
     padding: 5px;
@@ -33,8 +42,10 @@
     border-width: 1px;
     border-radius: 5px;
 
+}
+
+.input-group .input-field {
     width: 100px;
-    
 }
 
 .input-group .input-field.invalid {
@@ -59,15 +70,27 @@
 
     padding: 5px;
     
-    background-color: rgb(0, 95, 158);
+    background-color: rgb(128, 128, 128);
     color: white;
 
     cursor: pointer;
 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
-.button.alternative-color {
+.gold.button {
     background-color: rgb(158, 134, 0);
+}
+
+.black.button {
+    background-color: rgb(51, 51, 51);
+}
+
+.blue.button {
+    background-color: rgb(0, 95, 158);
 }
 
 .spacer {
@@ -92,8 +115,19 @@
 
 }
 
-.invalid-time-data-error-message {
-    display: none;
+.top-toolbar {
+
+    margin-left: 13px;
+    margin-top: 10px;
+    
+}
+
+.list {
+
+    list-style: none;
+
+    padding-left: 8px;
+
 }
 
 .layer {
@@ -117,7 +151,8 @@
 
 .layer .name {
 
-    width: 136px;
+    min-width: 151px;
+    width: 27%;
     
     white-space: nowrap;
     overflow: hidden;
@@ -125,23 +160,11 @@
 
 }
 
-.layer .clear.button {
-
-    display: none;
-
+.layer .button {
     width: 62px;
-
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
 }
 
-.layer .clear.button.displayed {
-    display: inline-block;
-}
-
-.toolbar {
+.bottom-toolbar {
     
     position: fixed;
     bottom: 0;
@@ -153,7 +176,7 @@
 
 }
 
-.toolbar .save-changes.button {
+.bottom-toolbar .save-changes.button {
 
     float: right;
 

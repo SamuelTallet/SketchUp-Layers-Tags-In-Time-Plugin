@@ -52,9 +52,9 @@ module LayersInTime
 
     # Finds layer dates.
     #
-    # @return [String] An empty string if dates were not found.
+    # @return [String, nil] nil if layer dates were not found.
     def dates
-      @native_layer.get_attribute('LayersInTime', 'dates', '')
+      @native_layer.get_attribute('LayersInTime', 'dates')
     end
 
     # Defines layer dates.
@@ -116,10 +116,12 @@ module LayersInTime
 
       parsed_layer_dates = {
 
+        start: layer_dates_start,
         start_month: layer_dates_start_month,
         start_day: layer_dates_start_day,
         start_day_of_year: layer_dates_start_day_of_year,
 
+        end: layer_dates_end,
         end_month: layer_dates_end_month,
         end_day: layer_dates_end_day,
         end_day_of_year: layer_dates_end_day_of_year
@@ -171,9 +173,9 @@ module LayersInTime
 
     # Finds layer hours.
     #
-    # @return [String] An empty string if hours were not found.
+    # @return [String, nil] nil if layer hours were not found.
     def hours
-      @native_layer.get_attribute('LayersInTime', 'hours', '')
+      @native_layer.get_attribute('LayersInTime', 'hours')
     end
 
     # Defines layer hours.
@@ -232,10 +234,12 @@ module LayersInTime
 
       parsed_layer_hours = {
 
+        start: layer_hours_start,
         start_hour: layer_hours_start_hour,
         start_minute: layer_hours_start_minute,
         start_second_of_day: layer_hours_start_second_of_day,
 
+        end: layer_hours_end,
         end_hour: layer_hours_end_hour,
         end_minute: layer_hours_end_minute,
         end_second_of_day: layer_hours_end_second_of_day

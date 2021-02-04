@@ -25,7 +25,7 @@ module LayersInTime
 
   if Sketchup.version.to_i >= 17
 
-    VERSION = '1.0.0'
+    VERSION = '1.0.1'
 
     # Load translation if it's available for current locale.
     TRANSLATE = LanguageHandler.new('layers_in_time.translation')
@@ -41,7 +41,8 @@ module LayersInTime
     # Initialize session storage.
     SESSION = {
       layers_editor_html_dialog_open?: false,
-      layers_editor_html_dialog: nil
+      layers_editor_html_dialog: nil,
+      layers_sort_in_editor: ''
     }
   
     # Register extension.

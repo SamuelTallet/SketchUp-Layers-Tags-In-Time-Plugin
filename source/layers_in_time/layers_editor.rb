@@ -62,6 +62,28 @@ module LayersInTime
 
     end
 
+    # Gets Layers Editor HTML code.
+    #
+    # @return [String]
+    def self.html
+
+      HTMLDialogs.merge(
+
+        # Note: Paths below are relative to `HTMLDialogs::DIR`.
+        document: 'layers-editor.rhtml',
+        scripts: [
+          'libraries/imask.js',
+          'libraries/list.js',
+          'layers-editor.js'
+        ],
+        styles: [
+          'layers-editor.css'
+        ]
+
+      )
+
+    end
+
     # Reloads Layers Editor.
     #
     # @return [Boolean]
@@ -72,19 +94,7 @@ module LayersInTime
         raise 'Layers Editor HTML Dialog instance is missing.'\
           if SESSION[:layers_editor_html_dialog].nil?
 
-        SESSION[:layers_editor_html_dialog].set_html(HTMLDialogs.merge(
-
-          # Note: Paths below are relative to `HTMLDialogs::DIR`.
-          document: 'layers-editor.rhtml',
-          scripts: [
-            'libraries/imask.js',
-            'layers-editor.js'
-          ],
-          styles: [
-            'layers-editor.css'
-          ]
-  
-        ))
+        SESSION[:layers_editor_html_dialog].set_html(html)
 
         return true
 
@@ -128,41 +138,25 @@ module LayersInTime
         dialog_title:    NAME,
         preferences_key: 'LayersInTime',
         scrollable:      true,
-        width:           510,
+        width:           585,
         height:          490,
-        min_width:       510,
+        min_width:       585,
         min_height:      490
       )
 
     end
 
     # Fills HTML dialog.
-    #
-    # @return [nil]
     private def fill_html_dialog
-
-      @html_dialog.set_html(HTMLDialogs.merge(
-
-        # Note: Paths below are relative to `HTMLDialogs::DIR`.
-        document: 'layers-editor.rhtml',
-        scripts: [
-          'libraries/imask.js',
-          'layers-editor.js'
-        ],
-        styles: [
-          'layers-editor.css'
-        ]
-
-      ))
-
-      nil
-
+      @html_dialog.set_html(self.class.html)
     end
 
     # Configures HTML dialog.
-    #
-    # @return [nil]
     private def configure_html_dialog
+
+      @html_dialog.add_action_callback('retainLayersSort') do |_ctx, layers_sort|
+        SESSION[:layers_sort_in_editor] = layers_sort
+      end
 
       @html_dialog.add_action_callback('updateLayers') do |_ctx, layers_time_data|
         
@@ -175,13 +169,13 @@ module LayersInTime
 
         end
 
+        self.class.reload
+
       end
 
       @html_dialog.set_on_closed { SESSION[:layers_editor_html_dialog_open?] = false }
 
       @html_dialog.center
-
-      nil
 
     end
 

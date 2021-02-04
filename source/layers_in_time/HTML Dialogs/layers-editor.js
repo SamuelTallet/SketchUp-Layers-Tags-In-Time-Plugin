@@ -43,6 +43,13 @@ LayersInTime.LAYER_HOURS_REGEX = /^((([0-1][0-9]|2[0-3]):([0-5][0-9])) - (([0-1]
 LayersInTime.LAYER_HOURS_PLACEHOLDER = '__:__ - __:__'
 
 /**
+ * Clipboard storing time data.
+ * 
+ * @type {object}
+ */
+LayersInTime.clipboard = {}
+
+/**
  * Gets layer dates input field.
  * 
  * @param {string|number} layerObjectId
@@ -200,6 +207,84 @@ LayersInTime.isTimeLayer = (layerObjectId) => {
 }
 
 /**
+ * Hides copy buttons of all layers.
+ */
+LayersInTime.hideLayersCopyButtons = () => {
+
+    document.querySelectorAll('.layer .copy.button').forEach(layerCopyButton => {
+        layerCopyButton.classList.add('hidden')
+    })
+
+}
+
+/**
+ * Displays copy buttons of all layers.
+ */
+LayersInTime.displayLayersCopyButtons = () => {
+
+    document.querySelectorAll('.layer .copy.button').forEach(layerCopyButton => {
+        layerCopyButton.classList.remove('hidden')
+    })
+
+}
+
+/**
+ * Copies into clipboard time data of a given layer.
+ * 
+ * @param {string|number} layerObjectId 
+ */
+LayersInTime.copyTimeData = (layerObjectId) => {
+
+    LayersInTime.clipboard = {
+
+        dates: LayersInTime.getLayerDatesInputField(layerObjectId).value,
+        hours: LayersInTime.getLayerHoursInputField(layerObjectId).value
+
+    }
+
+}
+
+/**
+ * Hides paste buttons of all layers.
+ */
+LayersInTime.hideLayersPasteButtons = () => {
+
+    document.querySelectorAll('.layer .paste.button').forEach(layerPasteButton => {
+        layerPasteButton.classList.add('hidden')
+    })
+
+}
+
+/**
+ * Displays paste buttons of all layers.
+ */
+LayersInTime.displayLayersPasteButtons = () => {
+
+    document.querySelectorAll('.layer .paste.button').forEach(layerPasteButton => {
+        layerPasteButton.classList.remove('hidden')
+    })
+
+}
+
+/**
+ * Paste time data stored in clipboard to a layer.
+ * 
+ * @param {string|number} layerObjectId 
+ */
+LayersInTime.pasteTimeData = (layerObjectId) => {
+
+    let layerDatesInputField = LayersInTime.getLayerDatesInputField(layerObjectId)
+    let layerHoursInputField = LayersInTime.getLayerHoursInputField(layerObjectId)
+
+    layerDatesInputField.value = LayersInTime.clipboard.dates
+    layerDatesInputField.dispatchEvent(new Event('keyup')) // Display or hide clear button.
+
+    layerHoursInputField.value = LayersInTime.clipboard.hours
+    layerHoursInputField.dispatchEvent(new Event('keyup')) // Display or hide clear button.
+
+}
+
+/**
  * Displays or hides clear time data button of a given layer.
  * 
  * @param {string|number} layerObjectId 
@@ -210,9 +295,9 @@ LayersInTime.displayOrHideLayerClearButton = (layerObjectId) => {
     let layerClearButton = layer.querySelector('.clear.button')
 
     if ( LayersInTime.isTimeLayer(layerObjectId) ) {
-        layerClearButton.classList.add('displayed')
+        layerClearButton.classList.remove('hidden')
     } else {
-        layerClearButton.classList.remove('displayed')
+        layerClearButton.classList.add('hidden')
     }
 
 }
@@ -315,9 +400,53 @@ LayersInTime.maskInputFields = () => {
 }
 
 /**
+ * Makes layers sortable by name, etc.
+ */
+LayersInTime.makeLayersSortable = () => {
+      
+    new List('layers', {
+        valueNames: ['name', 'start-date', 'end-date', 'start-hour', 'end-hour']
+    })
+
+}
+
+/**
+ * Sorts layers by...
+ * 
+ * @param {string} sortField
+ */
+LayersInTime.sortLayersBy = (sortField) => {
+
+    if ( sortField !== '' ) {
+        document.querySelector('.sort.button[data-sort="' + sortField + '"]').click()
+    }
+
+}
+
+/**
+ * Restores layers sort.
+ */
+LayersInTime.restoreLayersSort = () => {
+
+    let sortDropdown = document.querySelector('.sort.dropdown')
+
+    sortDropdown.value = sortDropdown.dataset.sessionSort
+
+    LayersInTime.sortLayersBy(sortDropdown.dataset.sessionSort)
+
+}
+
+/**
  * Adds event listeners.
  */
 LayersInTime.addEventListeners = () => {
+
+    document.querySelector('.sort.dropdown').addEventListener('change', event => {
+
+        LayersInTime.sortLayersBy(event.currentTarget.value)
+        sketchup.retainLayersSort(event.currentTarget.value)
+
+    })
 
     document.querySelectorAll('.layer .dates.input-field').forEach(layerDatesInputField => {
 
@@ -356,6 +485,34 @@ LayersInTime.addEventListeners = () => {
         })
 
     })
+
+    document.querySelectorAll('.layer .copy.button').forEach(layerCopyButton => {
+
+        layerCopyButton.addEventListener('click', event => {
+
+            LayersInTime.hideLayersCopyButtons()
+
+            LayersInTime.copyTimeData(event.currentTarget.dataset.layerObjectId)
+
+            LayersInTime.displayLayersPasteButtons()
+            
+        })
+
+    })
+
+    document.querySelectorAll('.layer .paste.button').forEach(layerPasteButton => {
+
+        layerPasteButton.addEventListener('click', event => {
+
+            LayersInTime.hideLayersPasteButtons()
+
+            LayersInTime.pasteTimeData(event.currentTarget.dataset.layerObjectId)
+
+            LayersInTime.displayLayersCopyButtons()
+            
+        })
+
+    })
     
     document.querySelectorAll('.layer .clear.button').forEach(layerClearButton => {
 
@@ -364,7 +521,7 @@ LayersInTime.addEventListeners = () => {
             LayersInTime.clearLayerDates(event.currentTarget.dataset.layerObjectId)
             LayersInTime.clearLayerHours(event.currentTarget.dataset.layerObjectId)
 
-            event.currentTarget.classList.remove('displayed')
+            event.currentTarget.classList.add('hidden')
 
         })
 
@@ -379,7 +536,13 @@ LayersInTime.addEventListeners = () => {
 // When document is ready:
 document.addEventListener('DOMContentLoaded', _event => {
 
-    LayersInTime.maskInputFields()
-    LayersInTime.addEventListeners()
+    if ( document.querySelectorAll('.layer').length >= 1 ) {
+
+        LayersInTime.maskInputFields()
+        LayersInTime.makeLayersSortable()
+        LayersInTime.restoreLayersSort()
+        LayersInTime.addEventListeners()
+
+    }
 
 })

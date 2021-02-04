@@ -12,6 +12,7 @@
     <title><%= NAME %></title>
     
     <%= scripts['libraries/imask.js'] %>
+    <%= scripts['libraries/list.js'] %>
 	<%= scripts['layers-editor.js'] %>
 
 	<%= styles['layers-editor.css'] %>
@@ -26,84 +27,166 @@
         if Sketchup.active_model.layers.length > 1
         %>
 
-        <div class="invalid-time-data-error-message">
+        <div class="hidden invalid-time-data-error-message">
             <%= TRANSLATE['Error: invalid time data detected. Save aborted.'] %>
         </div>
 
-        <%
+        <div class="top-toolbar">
+
+            <button class="hidden sort button" data-sort="name" data-order="asc">
+                Sort by name
+            </button>
+
+            <button class="hidden sort button" data-sort="start-date" data-order="asc">
+                Sort by start date
+            </button>
+
+            <button class="hidden sort button" data-sort="end-date" data-order="asc">
+                Sort by end date
+            </button>
+
+            <button class="hidden sort button" data-sort="start-hour" data-order="asc">
+                Sort by start hour
+            </button>
+
+            <button class="hidden sort button" data-sort="end-hour" data-order="asc">
+                Sort by end hour
+            </button>
+    
+            <select
+                class="sort dropdown"
+                data-session-sort="<%= SESSION[:layers_sort_in_editor] %>"
+            >
+                <option value=""><%= TRANSLATE['Sort by...'] %></option>
+                <option value="name"><%= TRANSLATE['Sort by name'] %></option>
+                <option value="start-date"><%= TRANSLATE['Sort by start date'] %></option>
+                <option value="end-date"><%= TRANSLATE['Sort by end date'] %></option>
+                <option value="start-hour"><%= TRANSLATE['Sort by start hour'] %></option>
+                <option value="end-hour"><%= TRANSLATE['Sort by end hour'] %></option>
+            </select>
+
+        </div>
+
+        <ul class="list">
+
+            <%
             Sketchup.active_model.layers.each do |native_layer|
 
                 layer = Layer.new(native_layer)
 
                 next if layer.native.name == 'Layer0'
-        %>
-    
-        <div class="layer" data-layer-object-id="<%= layer.native.object_id %>">
+            %>
+        
+            <li class="layer" data-layer-object-id="<%= layer.native.object_id %>">
 
-            <div
-                class="color"
-                style="background-color: <%= HTMLDialogs.html_rgb_color(layer.native.color) %>"
-            >
-            </div>
+                <div
+                    class="color"
+                    style="background-color: <%= HTMLDialogs.html_rgb_color(layer.native.color) %>"
+                >
+                </div>
 
-            <div class="name" title="<%= layer.native.name %>">
-                <%= layer.native.name %>
-            </div>
+                <div class="name" title="<%= layer.native.name %>">
+                    <%= layer.native.name %>
+                </div>
 
-            <div class="input-group">
+                <div class="input-group">
 
-                <input
-                    class="dates input-field"
-                    type="text"
-                    value="<%= layer.dates %>"
+                    <input
+                        class="dates input-field"
+                        type="text"
+                        value="<%= layer.dates_layer? ? layer.dates : '' %>"
+                        data-layer-object-id="<%= layer.native.object_id %>"
+                    />
+
+                    <span
+                        class="hidden start-date"
+                        data-layer-object-id="<%= layer.native.object_id %>"
+                    >
+                        <%= layer.dates_layer? ? layer.parsed_dates[:start] : '' %>
+                    </span>
+
+                    <span
+                        class="hidden end-date"
+                        data-layer-object-id="<%= layer.native.object_id %>"
+                    >
+                        <%= layer.dates_layer? ? layer.parsed_dates[:end] : '' %>
+                    </span>
+
+                    <img
+                        class="input-icon"
+                        src="<%= File.join(HTMLDialogs::DIR, 'images', 'calendar-icon.svg') %>"
+                        title="<%= TRANSLATE['Start date - End date'] %>"
+                    />
+
+                </div>
+
+                <div class="input-group">
+
+                    <input
+                        class="hours input-field"
+                        type="text"
+                        value="<%= layer.hours_layer? ? layer.hours : '' %>"
+                        data-layer-object-id="<%= layer.native.object_id %>"
+                    />
+
+                    <span
+                        class="hidden start-hour"
+                        data-layer-object-id="<%= layer.native.object_id %>"
+                    >
+                        <%= layer.hours_layer? ? layer.parsed_hours[:start] : '' %>
+                    </span>
+
+                    <span
+                        class="hidden end-hour"
+                        data-layer-object-id="<%= layer.native.object_id %>"
+                    >
+                        <%= layer.hours_layer? ? layer.parsed_hours[:end] : '' %>
+                    </span> 
+
+                    <img
+                        class="input-icon"
+                        src="<%= File.join(HTMLDialogs::DIR, 'images', 'clock-icon.svg') %>"
+                        title="<%= TRANSLATE['Start hour - End hour'] %>"
+                    />
+
+                </div>
+
+                <button
+                    class="copy gold button"
+                    title="<%= TRANSLATE['Copy time data'] %>"
                     data-layer-object-id="<%= layer.native.object_id %>"
-                />
+                >
+                    <%= TRANSLATE['Copy'] %>
+                </button>
 
-                <img
-                    class="input-icon"
-                    src="<%= File.join(HTMLDialogs::DIR, 'images', 'calendar-icon.svg') %>"
-                    title="<%= TRANSLATE['Start date - End date'] %>"
-                />
-
-            </div>
-
-            <div class="input-group">
-
-                <input
-                    class="hours input-field"
-                    type="text"
-                    value="<%= layer.hours %>"
+                <button
+                    class="hidden paste gold button"
+                    title="<%= TRANSLATE['Paste time data'] %>"
                     data-layer-object-id="<%= layer.native.object_id %>"
-                />
+                >
+                    <%= TRANSLATE['Paste'] %>
+                </button>
 
-                <img
-                    class="input-icon"
-                    src="<%= File.join(HTMLDialogs::DIR, 'images', 'clock-icon.svg') %>"
-                    title="<%= TRANSLATE['Start hour - End hour'] %>"
-                />
-
-            </div>
-
-            <button
-                class="clear button alternative-color"
-                title="<%= TRANSLATE['Clear time data'] %>"
-                data-layer-object-id="<%= layer.native.object_id %>"
-            >
-                <%= TRANSLATE['Clear'] %>
-            </button>
-    
-        </div>
-    
-        <%
+                <button
+                    class="hidden clear black button"
+                    title="<%= TRANSLATE['Clear time data'] %>"
+                    data-layer-object-id="<%= layer.native.object_id %>"
+                >
+                    <%= TRANSLATE['Clear'] %>
+                </button>
+        
+            </li>
+        
+            <%
             end
-        %>
+            %>
+
+        </ul>
 
         <div class="spacer"></div>
 
-        <div class="toolbar">
-
-            <button class="save-changes button"><%= TRANSLATE['Save changes'] %></button>
-
+        <div class="bottom-toolbar">
+            <button class="save-changes blue button"><%= TRANSLATE['Save changes'] %></button>
         </div>
 
         <%

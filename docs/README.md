@@ -7,7 +7,7 @@ Demo & Screen
 
 ![SketchUp Layers/Tags In Time Plugin Demo](https://github.com/SamuelTS/SketchUp-Layers-Tags-In-Time-Plugin/raw/main/docs/sketchup-layers-tags-in-time-plugin-demo.gif)
 
-![SketchUp Layers/Tags In Time Plugin Screen](https://github.com/SamuelTS/SketchUp-Layers-Tags-In-Time-Plugin/raw/main/docs/sketchup-layers-tags-in-time-plugin-screen.png)
+![SketchUp Layers/Tags In Time Plugin Screen](https://github.com/SamuelTS/SketchUp-Layers-Tags-In-Time-Plugin/raw/main/docs/sketchup-layers-tags-in-time-plugin-screen-v101.png)
 
 Documentation
 -------------
@@ -47,7 +47,7 @@ For sake of standardization between leap years and normal years: leap days aren'
 Thanks
 ------
 
-Layers/Tags In Time plugin relies on [imaskjs](https://github.com/uNmAnNeR/imaskjs). Thanks to imaskjs's contributors. Thanks also to Simon Joubert for this plugin's original idea. 
+Layers/Tags In Time plugin relies on [imaskjs](https://github.com/uNmAnNeR/imaskjs) and [List.js](https://github.com/javve/list.js). Thanks to imaskjs's and List.js's contributors. Thanks also to Simon Joubert for this plugin's original idea. 
 
 Copyright
 ---------
