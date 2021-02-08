@@ -1,6 +1,6 @@
 # Time layering/tagging free plugin for SketchUp
 
-Display or hide SketchUp layers/tags depending on time (dates or hours). Define as much time layers/tags you want: they combine. Create and assign simultaneously a layer/tag to an entity via context menu. Now, your favorite 3D modeling software understands seasons concept.
+Display or hide SketchUp layers/tags depending on time (dates or hours). Create and assign simultaneously a layer/tag to an entity via context menu. Export/import time tags in JSON format. Now, your favorite 3D modeling software understands seasons concept.
 
 Demo & Screen
 -------------
@@ -30,7 +30,7 @@ Say we have a SketchUp model containing a terrain, an oak tree, a snowy terrain,
 
 3. If you need it: assign "Deer" entity to a layer. Whatever... It doesn't concern us since, in our model, time has no effect on deer.
 
-4. Open "Extensions > Layers In Time". Input these dates for "Spring-Summer-Autumn" layer: 03/20 - 12/20. Input these dates for "Winter" layer: 12/21 - 03/19. (By the way, this plugin handles overlap on two years or two days.) Save changes.
+4. Open "Extensions > Layers In Time > Open Layers Editor". Input these dates for "Spring-Summer-Autumn" layer: 03/20 - 12/20. Input these dates for "Winter" layer: 12/21 - 03/19. (By the way, this plugin handles overlap on two years or two days.) Save changes.
 
 5. Open "Shadows" panel. Move date cursor somewhere between March 20 and December 20. Create a scene. Move date cursor between December 21 and March 19. Create a scene.
 
