@@ -19,6 +19,7 @@
 
 require 'sketchup'
 require 'layers_in_time/app_observer'
+require 'layers_in_time/model_observer'
 require 'layers_in_time/layers_observer'
 require 'layers_in_time/time_observer'
 require 'layers_in_time/menu'
@@ -28,14 +29,11 @@ require 'layers_in_time/context_menu'
 module LayersInTime
 
   Sketchup.add_observer(AppObserver.new)
+  Sketchup.active_model.add_observer(ModelObserver.new)
   Sketchup.active_model.layers.add_observer(LayersObserver.new)
   Sketchup.active_model.shadow_info.add_observer(TimeObserver.new)
 
-  # Plug Layers/Tags In Time menus into SketchUp UI.
-
-  Menu.new(
-    UI.menu('Plugins') # parent_menu
-  )
+  Menu.add
   ContextMenu.add
 
   # Load complete.

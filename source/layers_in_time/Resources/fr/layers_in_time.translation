@@ -7,11 +7,11 @@
 "Tags In Time"="Balises temporelles";
 "Layers In Time"="Calques temporels";
 "Display or hide SketchUp tags depending on time (dates or hours)."="Affichez ou masquez des balises SketchUp en fonction du temps (dates ou heures).";
-"Define as much time tags you want: they combine."="Définissez autant de balises temporelles que vous le souhaitez : elles se combinent.";
 "Display or hide SketchUp layers depending on time (dates or hours)."="Affichez ou masquez des calques SketchUp en fonction du temps (dates ou heures).";
-"Define as much time layers you want: they combine."="Définissez autant de calques temporels que vous le souhaitez : ils se combinent.";
 "Create and assign simultaneously a tag to an entity via context menu."="Créez et assignez simultanément une balise à une entité via le menu contextuel.";
 "Create and assign simultaneously a layer to an entity via context menu."="Créez et assignez simultanément un calque à une entité via le menu contextuel.";
+"Export/import time tags in JSON format."="Exportez/importez des balises temporelles au format JSON.";
+"Export/import time layers in JSON format."="Exportez/importez des calques temporels au format JSON.";
 "Now, your favorite 3D modeling software understands seasons concept."="Maintenant, votre logiciel de modélisation 3D préféré comprend le concept des saisons.";
 
 "Tag as"="Baliser en tant que";
@@ -24,6 +24,27 @@
 "Tags Editor is already open."="L'éditeur de balises est déjà ouvert.";
 "Layers Editor is already open."="L'éditeur de calques est déjà ouvert.";
 
+"Open Tags Editor"="Ouvrir l'éditeur de balises";
+"Open Layers Editor"="Ouvrir l'éditeur de calques";
+"Export to a JSON file"="Exporter vers un fichier JSON";
+"Import from a JSON file"="Importer depuis un fichier JSON";
+
+"Import time tags associated to this component?"="Importer les balises temporelles associées à ce composant ?";
+"Import time layers associated to this component?"="Importer les calques temporels associés à ce composant ?";
+
+"No time tag found. Export aborted."="Aucune balise temporelle trouvée. Export abandonné.";
+"No time layer found. Export aborted."="Aucun calque temporel trouvé. Export abandonné.";
+"Untitled model"="Modèle sans titre";
+"Time tags successfully exported here:"="Les balises temporelles ont été exportées avec succès ici :";
+"Time layers successfully exported here:"="Les calques temporels ont été exportés avec succès ici :";
+"JSON files"="Fichiers JSON";
+"time tags successfully imported."="balises temporelles importées avec succès.";
+"time layers successfully imported."="calques temporels importés avec succès.";
+"time tag successfully imported."="balise temporelle importée avec succès.";
+"time layer successfully imported."="calque temporel importé avec succès.";
+
+"Tags Editor"="Éditeur de balises";
+"Layers Editor"="Éditeur de calques";
 "Error: invalid time data detected. Save aborted."="Erreur : données temporelles non valides détectées. Sauvegarde abandonnée.";
 "Sort by..."="Trier par...";
 "Sort by name"="Trier par nom";

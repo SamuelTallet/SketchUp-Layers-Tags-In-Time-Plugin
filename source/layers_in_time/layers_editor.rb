@@ -51,15 +51,9 @@ module LayersInTime
 
     end
 
-    # Shows Layers Editor if all good conditions are met.
-    #
-    # @return [nil]
-    def self.safe_show
-
+    # Opens Layers Editor if all good conditions are met.
+    def self.safe_open
       self.new.show if safe_to_open?
-
-      nil
-
     end
 
     # Gets Layers Editor HTML code.
@@ -134,14 +128,20 @@ module LayersInTime
     # @return [UI::HtmlDialog] HTML dialog.
     private def create_html_dialog
 
+      html_dialog_title = TRANSLATE[
+        Sketchup.version.to_i >= 20 ?
+        'Tags Editor' :
+        'Layers Editor'
+      ] + ' - ' + NAME
+
       UI::HtmlDialog.new(
-        dialog_title:    NAME,
-        preferences_key: 'LayersInTime',
-        scrollable:      true,
-        width:           585,
-        height:          490,
-        min_width:       585,
-        min_height:      490
+        dialog_title:     html_dialog_title,
+        preferences_key:  'LayersInTime',
+        scrollable:       true,
+        width:            585,
+        height:           490,
+        min_width:        585,
+        min_height:       490
       )
 
     end

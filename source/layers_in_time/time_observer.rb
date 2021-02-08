@@ -26,7 +26,7 @@ module LayersInTime
   # Observes SketchUp time events and reacts.
   class TimeObserver < Sketchup::ShadowInfoObserver
 
-    # When SketchUp user alters a setting inside Shadows dialogs.
+    # When user alters a setting inside Shadows dialogs.
     def onShadowInfoChanged(shadow_info, type)
 
       TimeLayers.display_or_hide(shadow_info['ShadowTime'].getutc)\

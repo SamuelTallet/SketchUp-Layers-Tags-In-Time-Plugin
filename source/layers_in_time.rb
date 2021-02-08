@@ -25,7 +25,7 @@ module LayersInTime
 
   if Sketchup.version.to_i >= 17
 
-    VERSION = '1.0.1'
+    VERSION = '1.0.2'
 
     # Load translation if it's available for current locale.
     TRANSLATE = LanguageHandler.new('layers_in_time.translation')
@@ -42,7 +42,8 @@ module LayersInTime
     SESSION = {
       layers_editor_html_dialog_open?: false,
       layers_editor_html_dialog: nil,
-      layers_sort_in_editor: ''
+      layers_sort_in_editor: '',
+      imported_components_definitions_oids: []
     }
   
     # Register extension.
@@ -56,14 +57,14 @@ module LayersInTime
     if Sketchup.version.to_i >= 20
       extension_features = [
         TRANSLATE['Display or hide SketchUp tags depending on time (dates or hours).'],
-        TRANSLATE['Define as much time tags you want: they combine.'],
-        TRANSLATE['Create and assign simultaneously a tag to an entity via context menu.']
+        TRANSLATE['Create and assign simultaneously a tag to an entity via context menu.'],
+        TRANSLATE['Export/import time tags in JSON format.']
       ]
     else
       extension_features = [
         TRANSLATE['Display or hide SketchUp layers depending on time (dates or hours).'],
-        TRANSLATE['Define as much time layers you want: they combine.'],
-        TRANSLATE['Create and assign simultaneously a layer to an entity via context menu.']
+        TRANSLATE['Create and assign simultaneously a layer to an entity via context menu.'],
+        TRANSLATE['Export/import time layers in JSON format.']
       ]
     end
 

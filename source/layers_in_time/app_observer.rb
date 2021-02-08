@@ -18,6 +18,7 @@
 # Get a copy of the GPL here: https://www.gnu.org/licenses/gpl.html
 
 require 'sketchup'
+require 'layers_in_time/model_observer'
 require 'layers_in_time/layers_observer'
 require 'layers_in_time/time_observer'
 require 'layers_in_time/layers_editor'
@@ -28,23 +29,29 @@ module LayersInTime
   # Observes SketchUp events and reacts.
   class AppObserver < Sketchup::AppObserver
 
-    # When SketchUp user creates a new, empty model:
+    # When user creates a new, empty model:
     def onNewModel(model)
 
+      model.add_observer(ModelObserver.new)
       model.layers.add_observer(LayersObserver.new)
       model.shadow_info.add_observer(TimeObserver.new)
 
       LayersEditor.reload
+
+      SESSION[:imported_components_definitions_oids] = []
 
     end
 
-    # When SketchUp user opens an existing model:
+    # When user opens an existing model:
     def onOpenModel(model)
 
+      model.add_observer(ModelObserver.new)
       model.layers.add_observer(LayersObserver.new)
       model.shadow_info.add_observer(TimeObserver.new)
 
       LayersEditor.reload
+
+      SESSION[:imported_components_definitions_oids] = []
 
     end
 

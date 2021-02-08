@@ -24,18 +24,26 @@ require 'layers_in_time/layers_editor'
 module LayersInTime
 
   # Connects Layers/Tags In Time plugin menu to SketchUp user interface.
-  class Menu
+  module Menu
 
-    # Adds Layers/Tags In Time plugin menu in a SketchUp menu.
-    #
-    # @param [Sketchup::Menu] parent_menu Target parent menu.
-    # @raise [ArgumentError]
-    def initialize(parent_menu)
+    # Adds menu.
+    def self.add
 
-      raise ArgumentError, 'Parent menu must be a Sketchup::Menu.'\
-        unless parent_menu.is_a?(Sketchup::Menu)
+      plugins_menu = UI.menu('Plugins')
 
-      parent_menu.add_item(NAME) { LayersEditor.safe_show }
+      layers_in_time_menu = plugins_menu.add_submenu(NAME)
+
+      layers_in_time_menu.add_item(
+        TRANSLATE[Sketchup.version.to_i >= 20 ? 'Open Tags Editor' : 'Open Layers Editor']
+      ) { LayersEditor.safe_open }
+
+      layers_in_time_menu.add_item(
+        TRANSLATE['Export to a JSON file']
+      ) { TimeLayers.to_json_file }
+
+      layers_in_time_menu.add_item(
+        TRANSLATE['Import from a JSON file']
+      ) { TimeLayers.from_json_file }
 
     end
 
