@@ -1,6 +1,6 @@
 # Time layering/tagging free plugin for SketchUp
 
-Display or hide SketchUp layers/tags depending on time (dates or hours). Create and assign simultaneously a layer/tag to an entity via context menu. Export/import time layers/tags in JSON format. Now, your favorite 3D modeling software understands seasons concept.
+Display or hide SketchUp layers/tags depending on time (dates or hours). Create and assign simultaneously a layer/tag to an entity via context menu. Export and import time layers/tags in JSON format. Now, your favorite 3D modeling software understands seasons concept.
 
 Demo & Screen
 -------------
