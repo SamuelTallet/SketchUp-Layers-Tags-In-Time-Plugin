@@ -47,7 +47,7 @@ For sake of standardization between leap years and normal years: leap days aren'
 Thanks
 ------
 
-Layers/Tags In Time plugin relies on [imaskjs](https://github.com/uNmAnNeR/imaskjs), [List.js](https://github.com/javve/list.js) and [FFmpeg](https://ffmpeg.org/). Thanks to imaskjs's, List.js's and FFmpeg's contributors. Thanks also to Simon Joubert for this plugin's original idea. Toolbar icons of this plugin were made by [Linector](https://www.flaticon.com/authors/linector) and [Freepik](https://www.freepik.com) from [Flaticon](https://www.flaticon.com/).
+Layers/Tags In Time plugin relies on [imaskjs](https://github.com/uNmAnNeR/imaskjs), [List.js](https://github.com/javve/list.js) and [FFmpeg](https://github.com/FFmpeg/FFmpeg). Thanks to imaskjs's, List.js's and FFmpeg's contributors. Thanks also to Simon Joubert for this plugin's original idea. Toolbar icons of this plugin were made by [Linector](https://www.flaticon.com/authors/linector) and [Freepik](https://www.freepik.com) from [Flaticon](https://www.flaticon.com/).
 
 Copyright
 ---------
