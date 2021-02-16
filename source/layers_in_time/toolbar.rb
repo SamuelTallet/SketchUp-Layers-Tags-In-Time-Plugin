@@ -73,6 +73,8 @@ module LayersInTime
       
       toolbar.add_item(command_3)
 
+      toolbar.show
+
     end
 
   end
