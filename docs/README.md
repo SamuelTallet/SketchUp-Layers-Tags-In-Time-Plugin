@@ -1,6 +1,6 @@
 # Time layering/tagging free plugin for SketchUp
 
-Display or hide SketchUp layers/tags depending on time (dates or hours). Create and assign simultaneously a layer/tag to an entity via context menu. Export and import time layers/tags in JSON format. Now, your favorite 3D modeling software understands seasons concept.
+Display or hide SketchUp layers/tags depending on time (dates or hours). Create and assign simultaneously a layer/tag to an entity via context menu. Export time layers/tags to a MP4 or GIF animation. Export and import time layers/tags in JSON format. Now, your favorite 3D modeling software understands seasons concept.
 
 Demo & Screen
 -------------
@@ -18,7 +18,7 @@ Documentation
 2. Download latest Layers/Tags In Time plugin from the [SketchUcation PluginStore](https://sketchucation.com/plugin/2376-layers_tags_in_time).
 3. Install plugin following this [guide](https://www.youtube.com/watch?v=tyM5f81eRno).
 
-Now, you should have in SketchUp a "Layers/Tags In Time" menu in "Extensions" menu.
+Now, you should have in SketchUp a "Layers/Tags In Time" menu in "Extensions" menu and a "Layers/Tags In Time" toolbar.
 
 ### How to use this plugin?
 
@@ -32,9 +32,9 @@ Say we have a SketchUp model containing a terrain, an oak tree, a snowy terrain,
 
 4. Open "Extensions > Layers In Time > Open Layers Editor". Input these dates for "Spring-Summer-Autumn" layer: 03/20 - 12/20. Input these dates for "Winter" layer: 12/21 - 03/19. (By the way, this plugin handles overlap on two years or two days.) Save changes.
 
-5. Open "Shadows" panel. Move date cursor somewhere between March 20 and December 20. Create a scene. Move date cursor between December 21 and March 19. Create a scene.
+5. Open "Extensions > Layers In Time > Play animation". Customize settings then press "OK" to preview animation. Repeat this step until you are satisfied.
 
-6. Open "File > Export > Animation". Export to a video.
+6. Open "Extensions > Layers In Time > Export to an animation...". Customize settings then press "OK" to export animation. SketchUp can become unresponsive during this operation. Don't close SketchUp. Be patient ;)
 
 7. Enjoy result:
 
@@ -47,7 +47,7 @@ For sake of standardization between leap years and normal years: leap days aren'
 Thanks
 ------
 
-Layers/Tags In Time plugin relies on [imaskjs](https://github.com/uNmAnNeR/imaskjs) and [List.js](https://github.com/javve/list.js). Thanks to imaskjs's and List.js's contributors. Thanks also to Simon Joubert for this plugin's original idea. 
+Layers/Tags In Time plugin relies on [imaskjs](https://github.com/uNmAnNeR/imaskjs), [List.js](https://github.com/javve/list.js) and [FFmpeg](https://ffmpeg.org/). Thanks to imaskjs's, List.js's and FFmpeg's contributors. Thanks also to Simon Joubert for this plugin's original idea. Toolbar icons of this plugin were made by [Linector](https://www.flaticon.com/authors/linector) and [Freepik](https://www.freepik.com) from [Flaticon](https://www.flaticon.com/).
 
 Copyright
 ---------
