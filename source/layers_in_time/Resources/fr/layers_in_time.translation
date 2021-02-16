@@ -10,8 +10,10 @@
 "Display or hide SketchUp layers depending on time (dates or hours)."="Affichez ou masquez des calques SketchUp en fonction du temps (dates ou heures).";
 "Create and assign simultaneously a tag to an entity via context menu."="Créez et assignez simultanément une balise à une entité via le menu contextuel.";
 "Create and assign simultaneously a layer to an entity via context menu."="Créez et assignez simultanément un calque à une entité via le menu contextuel.";
-"Export/import time tags in JSON format."="Exportez/importez des balises temporelles au format JSON.";
-"Export/import time layers in JSON format."="Exportez/importez des calques temporels au format JSON.";
+"Export time tags to a MP4 or GIF animation."="Exportez des balises temporelles vers une animation MP4 ou GIF.";
+"Export time layers to a MP4 or GIF animation."="Exportez des calques temporels vers une animation MP4 ou GIF.";
+"Export and import time tags in JSON format."="Exportez et importez des balises temporelles au format JSON.";
+"Export and import time layers in JSON format."="Exportez et importez des calques temporels au format JSON.";
 "Now, your favorite 3D modeling software understands seasons concept."="Maintenant, votre logiciel de modélisation 3D préféré comprend le concept des saisons.";
 
 "Tag as"="Baliser en tant que";
@@ -21,20 +23,39 @@
 "Enter a tag name"="Entrez un nom de balise";
 "Enter a layer name"="Entrez un nom de calque";
 
+"Command failed:"="Commande échouée :";
+
+"Tags Editor"="Éditeur de balises";
+"Layers Editor"="Éditeur de calques";
 "Tags Editor is already open."="L'éditeur de balises est déjà ouvert.";
 "Layers Editor is already open."="L'éditeur de calques est déjà ouvert.";
 
 "Open Tags Editor"="Ouvrir l'éditeur de balises";
 "Open Layers Editor"="Ouvrir l'éditeur de calques";
-"Export to a JSON file"="Exporter vers un fichier JSON";
-"Import from a JSON file"="Importer depuis un fichier JSON";
+"Play animation"="Jouer l'animation";
+"Export to an animation..."="Exporter vers une animation...";
+"Export to a JSON file..."="Exporter vers un fichier JSON...";
+"Import from a JSON file..."="Importer depuis un fichier JSON...";
 
 "Import time tags associated to this component?"="Importer les balises temporelles associées à ce composant ?";
 "Import time layers associated to this component?"="Importer les calques temporels associés à ce composant ?";
 
-"No time tag found. Export aborted."="Aucune balise temporelle trouvée. Export abandonné.";
-"No time layer found. Export aborted."="Aucun calque temporel trouvé. Export abandonné.";
+"There are no time tags to animate."="Il n'y a pas de balises temporelles à animer.";
+"There are no time layers to animate."="Il n'y a pas de calques temporels à animer.";
+"Format"="Format";
+"Resolution"="Résolution";
+"Frames per day"="Images par jour";
+"Skip nights?"="Sauter les nuits ?";
+"Yes"="Oui";
+"No"="Non";
+"Frames per second"="Images par seconde";
+"MP4 quality (CRF)"="Qualité du MP4 (FTC)";
 "Untitled model"="Modèle sans titre";
+"Exporting animation frames... Please wait."="Exportation des images de l'animation... Veuillez patienter.";
+"Creating animation with FFmpeg... Please wait."="Création de l'animation avec FFmpeg... Veuillez patienter.";
+"Animation successfully exported here:"="Animation exportée avec succès ici :";
+"No time tag found. JSON export aborted."="Aucune balise temporelle trouvée. Export JSON abandonné.";
+"No time layer found. JSON export aborted."="Aucun calque temporel trouvé. Export JSON abandonné.";
 "Time tags successfully exported here:"="Les balises temporelles ont été exportées avec succès ici :";
 "Time layers successfully exported here:"="Les calques temporels ont été exportés avec succès ici :";
 "JSON files"="Fichiers JSON";
@@ -43,8 +64,6 @@
 "time tag successfully imported."="balise temporelle importée avec succès.";
 "time layer successfully imported."="calque temporel importé avec succès.";
 
-"Tags Editor"="Éditeur de balises";
-"Layers Editor"="Éditeur de calques";
 "Error: invalid time data detected. Save aborted."="Erreur : données temporelles non valides détectées. Sauvegarde abandonnée.";
 "Sort by..."="Trier par...";
 "Sort by name"="Trier par nom";

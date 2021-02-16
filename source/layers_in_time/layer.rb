@@ -222,14 +222,14 @@ module LayersInTime
       layer_hours_start_hour = layer_hours_start_hour_and_minute[0].to_i
       layer_hours_start_minute = layer_hours_start_hour_and_minute[1].to_i
 
-      layer_hours_start_second_of_day = (layer_hours_start_hour * 3600) +\
+      layer_hours_start_second_of_day = (layer_hours_start_hour * 3600) +
         (layer_hours_start_minute * 60)
 
       layer_hours_end_hour_and_minute = layer_hours_end.split(':')
       layer_hours_end_hour = layer_hours_end_hour_and_minute[0].to_i
       layer_hours_end_minute = layer_hours_end_hour_and_minute[1].to_i
 
-      layer_hours_end_second_of_day = (layer_hours_end_hour * 3600) +\
+      layer_hours_end_second_of_day = (layer_hours_end_hour * 3600) +
         (layer_hours_end_minute * 60)
 
       parsed_layer_hours = {

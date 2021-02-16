@@ -51,9 +51,9 @@ module LayersInTime
                 TRANSLATE[
                   Sketchup.version.to_i >= 20 ? 'Enter a tag name' : 'Enter a layer name'
                 ] + ' '
-              ],
-              [''],
-              NAME
+              ], # prompts
+              [''], # defaults
+              NAME # title
             )
 
             if new_native_layer_name.is_a?(Array) && !new_native_layer_name[0].empty?

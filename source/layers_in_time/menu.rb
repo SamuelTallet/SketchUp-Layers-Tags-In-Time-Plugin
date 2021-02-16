@@ -37,12 +37,24 @@ module LayersInTime
         TRANSLATE[Sketchup.version.to_i >= 20 ? 'Open Tags Editor' : 'Open Layers Editor']
       ) { LayersEditor.safe_open }
 
+      layers_in_time_menu.add_separator
+
       layers_in_time_menu.add_item(
-        TRANSLATE['Export to a JSON file']
+        TRANSLATE['Play animation']
+      ) { TimeLayers.animate }
+
+      layers_in_time_menu.add_item(
+        TRANSLATE['Export to an animation...']
+      ) { TimeLayers.animate(export_animation = true) }
+
+      layers_in_time_menu.add_separator
+
+      layers_in_time_menu.add_item(
+        TRANSLATE['Export to a JSON file...']
       ) { TimeLayers.to_json_file }
 
       layers_in_time_menu.add_item(
-        TRANSLATE['Import from a JSON file']
+        TRANSLATE['Import from a JSON file...']
       ) { TimeLayers.from_json_file }
 
     end

@@ -29,7 +29,7 @@ module LayersInTime
     # When user alters a setting inside Shadows dialogs.
     def onShadowInfoChanged(shadow_info, type)
 
-      TimeLayers.display_or_hide(shadow_info['ShadowTime'].getutc)\
+      TimeLayers.display_or_hide(shadow_info['ShadowTime'].utc)\
         if type == 0 # 0 = Time/Date sliders.
 
     end

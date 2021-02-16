@@ -25,7 +25,7 @@ module LayersInTime
 
   if Sketchup.version.to_i >= 17
 
-    VERSION = '1.0.2'
+    VERSION = '1.0.3'
 
     # Load translation if it's available for current locale.
     TRANSLATE = LanguageHandler.new('layers_in_time.translation')
@@ -43,7 +43,15 @@ module LayersInTime
       layers_editor_html_dialog_open?: false,
       layers_editor_html_dialog: nil,
       layers_sort_in_editor: '',
-      imported_components_definitions_oids: []
+      imported_components_definitions_oids: [],
+      animation: {
+        format: 'MP4',
+        resolution: '1920x1080',
+        frames_per_day: 120,
+        skip_nights?: true,
+        frames_per_second: 16,
+        constant_rate_factor: 23
+      }
     }
   
     # Register extension.
@@ -58,13 +66,15 @@ module LayersInTime
       extension_features = [
         TRANSLATE['Display or hide SketchUp tags depending on time (dates or hours).'],
         TRANSLATE['Create and assign simultaneously a tag to an entity via context menu.'],
-        TRANSLATE['Export/import time tags in JSON format.']
+        TRANSLATE['Export time tags to a MP4 or GIF animation.'],
+        TRANSLATE['Export and import time tags in JSON format.']
       ]
     else
       extension_features = [
         TRANSLATE['Display or hide SketchUp layers depending on time (dates or hours).'],
         TRANSLATE['Create and assign simultaneously a layer to an entity via context menu.'],
-        TRANSLATE['Export/import time layers in JSON format.']
+        TRANSLATE['Export time layers to a MP4 or GIF animation.'],
+        TRANSLATE['Export and import time layers in JSON format.']
       ]
     end
 

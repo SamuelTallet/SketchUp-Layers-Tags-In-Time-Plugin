@@ -18,6 +18,7 @@
 # Get a copy of the GPL here: https://www.gnu.org/licenses/gpl.html
 
 require 'sketchup'
+require 'json'
 require 'layers_in_time/time_layers'
 
 # Layers/Tags In Time plugin namespace.
@@ -28,13 +29,6 @@ module LayersInTime
 
     # When a component is placed into the model:
     def onPlaceComponent(component)
-
-      # Note: SketchUp already imports native layers for sub-components.
-      layer_to_import = component.definition.get_attribute('LayersInTime', 'layer')
-
-      if !layer_to_import.nil?
-        component.layer = Sketchup.active_model.layers.add(layer_to_import)
-      end
 
       time_layers_to_import = component.definition.get_attribute('LayersInTime', 'timeLayers')
       
@@ -57,7 +51,18 @@ module LayersInTime
           MB_OKCANCEL
         )
 
-        TimeLayers.from_json(time_layers_to_import) if import_time_layers == IDOK
+        if import_time_layers == IDOK
+
+          # Note: SketchUp already imports native layers for sub-components.
+          layer_to_import = component.definition.get_attribute('LayersInTime', 'layer')
+
+          if !layer_to_import.nil?
+            component.layer = Sketchup.active_model.layers.add(layer_to_import)
+          end
+
+          TimeLayers.from_json(time_layers_to_import)
+
+        end
 
       end
 
@@ -66,10 +71,14 @@ module LayersInTime
     # When user is saving a component instance:
     def onBeforeComponentSaveAs(component)
 
-      if TimeLayers.associated_to_component?(component)
+      time_layers_to_export = TimeLayers.associated_to_component(component)
+
+      if time_layers_to_export.length >= 1
 
         component.definition.set_attribute('LayersInTime', 'layer', component.layer.name)
-        component.definition.set_attribute('LayersInTime', 'timeLayers', TimeLayers.to_json)
+        component.definition.set_attribute(
+          'LayersInTime', 'timeLayers', JSON.generate(time_layers_to_export)
+        )
 
       end
 
@@ -78,7 +87,9 @@ module LayersInTime
     # When user has saved a component instance:
     def onAfterComponentSaveAs(component)
 
-      if TimeLayers.associated_to_component?(component)
+      time_layers_to_export = TimeLayers.associated_to_component(component)
+
+      if time_layers_to_export.length >= 1
 
         component.definition.delete_attribute('LayersInTime', 'layer')
         component.definition.delete_attribute('LayersInTime', 'timeLayers')

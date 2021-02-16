@@ -23,6 +23,7 @@ require 'layers_in_time/model_observer'
 require 'layers_in_time/layers_observer'
 require 'layers_in_time/time_observer'
 require 'layers_in_time/menu'
+require 'layers_in_time/toolbar'
 require 'layers_in_time/context_menu'
 
 # Layers/Tags In Time plugin namespace.
@@ -34,6 +35,7 @@ module LayersInTime
   Sketchup.active_model.shadow_info.add_observer(TimeObserver.new)
 
   Menu.add
+  Toolbar.add
   ContextMenu.add
 
   # Load complete.
