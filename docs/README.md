@@ -32,7 +32,7 @@ Say we have a SketchUp model containing a terrain, an oak tree, a snowy terrain,
 
 4. Open "Extensions > Layers In Time > Open Layers Editor". Input these dates for "Spring-Summer-Autumn" layer: 03/20 - 12/20. Input these dates for "Winter" layer: 12/21 - 03/19. (By the way, this plugin handles overlap on two years or two days.) Save changes.
 
-5. Open "Extensions > Layers In Time > Play animation". Customize settings then press "OK" to preview animation. Repeat this step until you are satisfied.
+5. Open "Extensions > Layers In Time > Play animation". Customize settings then press "OK" to preview animation. Repeat this step until you're satisfied.
 
 6. Open "Extensions > Layers In Time > Export to an animation...". Customize settings then press "OK" to export animation. SketchUp can become unresponsive during this operation. Don't close SketchUp. Be patient ;)
 
