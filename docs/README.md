@@ -5,9 +5,9 @@ Display or hide SketchUp layers/tags depending on time (dates or hours). Create 
 Demo & Screen
 -------------
 
-![SketchUp Layers/Tags In Time Plugin Demo](https://github.com/SamuelTS/SketchUp-Layers-Tags-In-Time-Plugin/raw/main/docs/sketchup-layers-tags-in-time-plugin-demo.gif)
+![SketchUp Layers/Tags In Time Plugin Demo](https://github.com/SamuelTallet/SketchUp-Layers-Tags-In-Time-Plugin/raw/main/docs/sketchup-layers-tags-in-time-plugin-demo.gif)
 
-![SketchUp Layers/Tags In Time Plugin Screen](https://github.com/SamuelTS/SketchUp-Layers-Tags-In-Time-Plugin/raw/main/docs/sketchup-layers-tags-in-time-plugin-screen-v101.png)
+![SketchUp Layers/Tags In Time Plugin Screen](https://github.com/SamuelTallet/SketchUp-Layers-Tags-In-Time-Plugin/raw/main/docs/sketchup-layers-tags-in-time-plugin-screen-v101.png)
 
 Documentation
 -------------
@@ -38,7 +38,7 @@ Say we have a SketchUp model containing a terrain, an oak tree, a snowy terrain,
 
 7. Enjoy result:
 
-![SketchUp Layers/Tags In Time Plugin Demo](https://github.com/SamuelTS/SketchUp-Layers-Tags-In-Time-Plugin/raw/main/docs/sketchup-layers-tags-in-time-plugin-demo.gif)
+![SketchUp Layers/Tags In Time Plugin Demo](https://github.com/SamuelTallet/SketchUp-Layers-Tags-In-Time-Plugin/raw/main/docs/sketchup-layers-tags-in-time-plugin-demo.gif)
 
 ### In UI of this plugin, February 29 isn't a valid date. Why?
 
